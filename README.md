@@ -2,7 +2,18 @@
 
 Search Florida business entities and retrieve filing details, registered agents, officers, and managers through RapidAPI.
 
-**[Open the API on RapidAPI](https://rapidapi.com/aa-general-solutions-aa-general-solutions-default/api/florida-sunbiz-entity-and-officer-lookup)**
+**[Open the API on RapidAPI](https://rapidapi.com/aa-general-solutions-aa-general-solutions-default/api/florida-sunbiz-entity-and-officer-lookup)** · **[View the product page](https://florida-sunbiz-api.yarrastia86.chatgpt.site)**
+
+## Plans
+
+| Plan | Monthly requests | Price |
+|---|---:|---:|
+| Basic | 100 | Free |
+| Pro | 2,500 | $25/month |
+| Ultra | 15,000 | $75/month |
+| Mega | 50,000 | $150/month |
+
+Every plan has a hard monthly limit, so usage cannot create an unexpected overage charge.
 
 ## What you can query
 
@@ -145,6 +156,23 @@ Example response (abbreviated):
 | 429 | RapidAPI plan quota or rate limit exceeded |
 | 500 | Internal processing error |
 | 503 | Local data index unavailable |
+
+## Data freshness
+
+The unauthenticated health endpoint reports the timestamp and filename of the indexed source data:
+
+```bash
+curl 'https://api-sunbiz.aageneralsolutions.com/health'
+```
+
+```json
+{
+  "status": "ok",
+  "timestamp": "2026-09-30T14:43:40Z",
+  "data_updated_at": "2026-09-30T14:43:40Z",
+  "last_source": "20260929c.txt"
+}
+```
 
 ## Security
 
