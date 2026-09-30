@@ -2,7 +2,7 @@
 
 Search Florida business entities and retrieve filing details, registered agents, officers, and managers through RapidAPI.
 
-**[Open the API on RapidAPI](https://rapidapi.com/aa-general-solutions-aa-general-solutions-default/api/florida-sunbiz-entity-and-officer-lookup)** · **[View the product page](https://florida-sunbiz-api.yarrastia86.chatgpt.site)**
+**[Open the API on RapidAPI](https://rapidapi.com/aa-general-solutions-aa-general-solutions-default/api/florida-sunbiz-entity-and-officer-lookup)** · **[View the product page](https://sunbiz-api.aageneralsolutions.com)**
 
 ## Plans
 
