@@ -36,7 +36,7 @@ X-RapidAPI-Host: florida-sunbiz-entity-and-officer-lookup.p.rapidapi.com
 GET /v1/entity/search?name=publix&limit=2
 ```
 
-`name` is required. `limit` is optional, defaults to 20, and accepts values from 1 through 50.
+At least one search criterion is required. `limit` is optional, defaults to 20, and accepts values from 1 through 50.
 
 ```bash
 curl --request GET \
@@ -56,6 +56,38 @@ Example response:
     "filing_date": "08/29/2001"
   }
 ]
+```
+
+### Search criteria
+
+The search endpoint accepts any of these identity criteria:
+
+| Parameter | Match type | Example |
+|---|---|---|
+| `name` | Prefix | `publix` |
+| `document_number` | Exact | `112252` |
+| `fei_ein_number` | Exact | `59-0324412` or `590324412` |
+| `registered_agent` | Prefix | `corporate creations` |
+| `officer` | Prefix | `murphy` |
+| `status` | Optional filter | `Active` or `Inactive` |
+
+At least one identity criterion is required. You can combine criteria; combined filters use AND semantics.
+
+```bash
+# Exact FEI/EIN lookup
+curl --get \
+  --url 'https://florida-sunbiz-entity-and-officer-lookup.p.rapidapi.com/v1/entity/search' \
+  --data-urlencode 'fei_ein_number=59-0324412' \
+  --header "X-RapidAPI-Key: $RAPIDAPI_KEY" \
+  --header 'X-RapidAPI-Host: florida-sunbiz-entity-and-officer-lookup.p.rapidapi.com'
+
+# Active entities associated with an officer or manager name prefix
+curl --get \
+  --url 'https://florida-sunbiz-entity-and-officer-lookup.p.rapidapi.com/v1/entity/search' \
+  --data-urlencode 'officer=murphy' \
+  --data-urlencode 'status=Active' \
+  --header "X-RapidAPI-Key: $RAPIDAPI_KEY" \
+  --header 'X-RapidAPI-Host: florida-sunbiz-entity-and-officer-lookup.p.rapidapi.com'
 ```
 
 ## Get entity details
